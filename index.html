@@ -1,52 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Qualixdata treinamento e suporte à pesquisa acadêmica</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<header>
-		<h1>Qualixdata treinamento e suporte à pesquisa acadêmica</h1>
-		<nav>
-			<ul>
-				<li><a href="#treinador">Treinador</a></li>
-				<li><a href="#cursos">Cursos oferecidos</a></li>
-				<li><a href="#contato">Contato</a></li>
-			</ul>
-		</nav>
-	</header>
+---
+layout: default
+---
 
-	<main>
-		<section id="treinador">
-			<h2>Informações do treinador</h2>
-			<p>Aqui você pode incluir informações sobre o treinador, como nome, formação acadêmica, experiência em pesquisa e ensino, etc.</p>
-		</section>
+<div class="home">
 
-		<section id="cursos">
-			<h2>Cursos oferecidos</h2>
-			<ul>
-				<li>Curso 1: descrição do curso 1</li>
-				<li>Curso 2: descrição do curso 2</li>
-				<li>Curso 3: descrição do curso 3</li>
-			</ul>
-		</section>
+  <h1>Posts</h1>
 
-		<section id="contato">
-			<h2>Contato</h2>
-			<p>Entre em contato conosco para obter mais informações sobre nossos cursos ou para agendar uma consulta.</p>
-			<form action="#" method="POST">
-				<label for="nome">Nome:</label>
-				<input type="text" id="nome" name="nome" required>
-				<label for="email">E-mail:</label>
-				<input type="email" id="email" name="email" required>
-				<label for="mensagem">Mensagem:</label>
-				<textarea id="mensagem" name="mensagem" required></textarea>
-				<button type="submit">Enviar</button>
-			</form>
-		</section>
-	</main>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-	<footer>
-		<p>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
